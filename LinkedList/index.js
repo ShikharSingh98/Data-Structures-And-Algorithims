@@ -8,6 +8,7 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.count = 0;
   }
 
   insert(data) {
@@ -36,10 +37,18 @@ class LinkedList {
   }
 
   recursiveDisplay(current) {
-    if (current != null) {
+    if (current !== null) {
       console.log(current.data);
       this.recursiveDisplay(current.next);
     }
+  }
+
+  countNodes(current) {
+    if (current !== null) {
+      this.count += 1;
+      this.countNodes(current.next);
+    }
+    return this.count;
   }
 }
 
@@ -52,4 +61,6 @@ ll.insert(40);
 ll.insert(50);
 
 // ll.display();
-ll.recursiveDisplay(ll.head);
+// ll.recursiveDisplay(ll.head);
+
+console.log(ll.countNodes(ll.head));
