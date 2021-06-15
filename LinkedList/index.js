@@ -34,6 +34,13 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  recursiveDisplay(current) {
+    if (current != null) {
+      console.log(current.data);
+      this.recursiveDisplay(current.next);
+    }
+  }
 }
 
 let ll = new LinkedList();
@@ -44,4 +51,5 @@ ll.insert(30);
 ll.insert(40);
 ll.insert(50);
 
-ll.display();
+// ll.display();
+ll.recursiveDisplay(ll.head);
