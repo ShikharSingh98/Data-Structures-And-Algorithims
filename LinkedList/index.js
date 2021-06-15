@@ -57,6 +57,20 @@ class LinkedList {
       return 0;
     }
   }
+
+  maxNode(current) {
+    let max = 0;
+
+    if (current === null) {
+      return 0;
+    }
+    max = this.maxNode(current.next);
+    if (max > current.data) {
+      return max;
+    } else {
+      return current.data;
+    }
+  }
 }
 
 let ll = new LinkedList();
@@ -70,4 +84,4 @@ ll.insert(50);
 // ll.display();
 // ll.recursiveDisplay(ll.head);
 
-console.log(ll.sumOfNodes(ll.head));
+console.log(ll.maxNode(ll.head));
