@@ -8,7 +8,6 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
-    this.count = 0;
   }
 
   insert(data) {
@@ -45,10 +44,18 @@ class LinkedList {
 
   countNodes(current) {
     if (current !== null) {
-      this.count += 1;
-      this.countNodes(current.next);
+      return this.countNodes(current.next) + 1;
+    } else {
+      return 0;
     }
-    return this.count;
+  }
+
+  sumOfNodes(current) {
+    if (current !== null) {
+      return this.sumOfNodes(current.next) + current.data;
+    } else {
+      return 0;
+    }
   }
 }
 
@@ -63,4 +70,4 @@ ll.insert(50);
 // ll.display();
 // ll.recursiveDisplay(ll.head);
 
-console.log(ll.countNodes(ll.head));
+console.log(ll.sumOfNodes(ll.head));
